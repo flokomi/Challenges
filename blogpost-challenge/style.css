@@ -24,10 +24,25 @@ body {
   padding: 20px 0;
 }
 
+.row {
+  display: flex;
+  gap: 40px;
+}
+
 /* PRODUCT INFORMATION*/
+.product-info {
+  flex: 1;
+  margin-top: 20px;
+}
+
+.price-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .price {
   font-size: 22px;
-  float: left;
 }
 
 .shipping {
@@ -35,15 +50,11 @@ body {
   font-size: 12px;
   font-weight: bold;
   color: #777;
-  margin-bottom: 20px;
-  float: right;
-  margin-top: 8px;
 }
 
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: block;
+.product-text {
+  margin-top: 10px;
+  margin-bottom: 15px;
 }
 
 .sale {
@@ -64,7 +75,7 @@ body {
 .more-info:visited {
   color: #000;
   display: inline-block;
-  margin-bottom: 30px;
+  margin-bottom: 25px;
 }
 
 .more-info:hover,
@@ -74,12 +85,12 @@ body {
 
 .colors {
   margin-bottom: 30px;
+  display: flex;
+  gap: 10px;
 }
 
 .square {
   padding: 10px;
-  display: inline-block;
-  margin-right: 10px;
 }
 
 .black {
@@ -107,6 +118,11 @@ body {
 }
 
 /* PRODUCT DETAILS*/
+.product-details {
+  flex: 1;
+  margin-top: 20px;
+}
+
 .details-title {
   text-transform: uppercase;
   font-size: 16px;
@@ -140,23 +156,4 @@ body {
   border: white;
   color: #000;
   border-top: 4px solid #000;
-}
-
-.product-img {
-  float: left;
-  margin-right: 40px;
-}
-
-.product-info {
-  float: left;
-  /* (825 - 8 - 250 - 80) /2 */
-  width: 243px;
-  margin-right: 40px;
-  margin-top: 20px;
-}
-
-.product-details {
-  float: left;
-  width: 243px;
-  margin-top: 20px;
 }
