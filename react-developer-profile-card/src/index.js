@@ -8,13 +8,7 @@ function App() {
       <Avatar />
       <div className="data">
         <Intro />
-        <SkillList
-          skillOne={{ text: "HTML & CSS🌈", bgColor: "MediumOrchid" }}
-          skillTwo={{ text: "Ruby on Rails💎", bgColor: "DarkOrange" }}
-          skillThree={{ text: "JavaScript🚩", bgColor: "DeepSkyBlue" }}
-          skillFour={{ text: "Webdesign👏", bgColor: "DeepPink" }}
-          skillFive={{ text: "Git & Github😎", bgColor: "LimeGreen" }}
-        />
+        <SkillList />
       </div>
     </div>
   );
@@ -22,11 +16,7 @@ function App() {
 
 function Avatar() {
   return (
-    <img
-      className="avatar"
-      src="../public/profile_image.png"
-      alt="Florian Miller"
-    />
+    <img className="avatar" src="profile_image.png" alt="Florian Miller" />
   );
 }
 
@@ -42,42 +32,27 @@ function Intro() {
   );
 }
 
-function SkillList(props) {
-  console.log(props);
-
+function SkillList() {
   return (
     <li className="skill-list">
-      <div
-        className="skill"
-        style={{ backgroundColor: `${props.skillOne.bgColor}` }}
-      >
-        <span>{props.skillOne.text}</span>
-      </div>
-      <div
-        className="skill"
-        style={{ backgroundColor: `${props.skillTwo.bgColor}` }}
-      >
-        <span>{props.skillTwo.text}</span>
-      </div>
-      <div
-        className="skill"
-        style={{ backgroundColor: `${props.skillThree.bgColor}` }}
-      >
-        <span>{props.skillThree.text}</span>
-      </div>
-      <div
-        className="skill"
-        style={{ backgroundColor: `${props.skillFour.bgColor}` }}
-      >
-        <span>{props.skillFour.text}</span>
-      </div>
-      <div
-        className="skill"
-        style={{ backgroundColor: `${props.skillFive.bgColor}` }}
-      >
-        <span>{props.skillFive.text}</span>
-      </div>
+      <Skill skill="HTML & CSS" emoji="🌈" bgColor="MediumOrchid" />
+      <Skill skill="Ruby on Rails" emoji="💎" bgColor="DarkOrange" />
+      <Skill skill="JavaScript" emoji="🚩" bgColor="DodgerBlue" />
+      <Skill skill="Webdesign" emoji="👏" bgColor="DeepPink" />
+      <Skill skill="Git & Github" emoji="😎" bgColor="LimeGreen" />
     </li>
+  );
+}
+
+function Skill(props) {
+  console.log(props);
+  return (
+    <div className="skill" style={{ backgroundColor: props.bgColor }}>
+      <span>
+        {props.skill}
+        {props.emoji}
+      </span>
+    </div>
   );
 }
 
