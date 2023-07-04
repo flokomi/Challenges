@@ -2,6 +2,34 @@ import React from "react";
 import ReactDom from "react-dom/client";
 import "./style.css";
 
+const skills = [
+  {
+    title: "HTML & CSS",
+    level: "advanced",
+    bgColor: "MediumOrchid",
+  },
+  {
+    title: "Ruby on Rails",
+    level: "intermediate",
+    bgColor: "DarkOrange",
+  },
+  {
+    title: "JavaScript",
+    level: "beginner",
+    bgColor: "DodgerBlue",
+  },
+  {
+    title: "Webdesign",
+    level: "advanced",
+    bgColor: "DeepPink",
+  },
+  {
+    title: "Git & Github",
+    level: "intermediate",
+    bgColor: "LimeGreen",
+  },
+];
+
 function App() {
   return (
     <div className="card">
@@ -22,37 +50,36 @@ function Avatar() {
 
 function Intro() {
   return (
-    <div>
+    <>
       <h1>Florian Miller</h1>
       <p>
         Full-Stack web developper. When not coding then surfscating or enjoying
         to cook and eat great food. Always happy to see the eyes of my kids.
       </p>
-    </div>
+    </>
   );
 }
 
 function SkillList() {
   return (
-    <li className="skill-list">
-      <Skill skill="HTML & CSS" emoji="🌈" bgColor="MediumOrchid" />
-      <Skill skill="Ruby on Rails" emoji="💎" bgColor="DarkOrange" />
-      <Skill skill="JavaScript" emoji="🚩" bgColor="DodgerBlue" />
-      <Skill skill="Webdesign" emoji="👏" bgColor="DeepPink" />
-      <Skill skill="Git & Github" emoji="😎" bgColor="LimeGreen" />
-    </li>
+    <ul className="skill-list">
+      {skills.map((skill) => {
+        return <Skill skill={skill} key={skill.title} />;
+      })}
+    </ul>
   );
 }
 
-function Skill(props) {
-  console.log(props);
+function Skill({ skill }) {
   return (
-    <div className="skill" style={{ backgroundColor: props.bgColor }}>
+    <li className="skill" style={{ backgroundColor: skill.bgColor }}>
+      <span>{skill.title} </span>
       <span>
-        {props.skill}
-        {props.emoji}
+        {skill.level === "advanced" && "💪"}
+        {skill.level === "intermediate" && "🚩"}
+        {skill.level === "beginner" && "🫤"}
       </span>
-    </div>
+    </li>
   );
 }
 

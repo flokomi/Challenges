@@ -39,6 +39,7 @@ h1 {
 .avatar {
   width: 100%;
   display: block;
+  /* object-fit: cover; */
 }
 
 .data {
