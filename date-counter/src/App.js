@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./index.css";
 
 function App() {
   return <Counter />;
@@ -10,45 +11,72 @@ function Counter() {
   const date = new Date();
   date.setDate(date.getDate() + count);
 
+  function handleReset() {
+    setStep(1);
+    setCount(0);
+  }
+
   return (
-    <div>
+    <div className="counter">
+      <div>
+        <input
+          type="range"
+          n
+          min="0"
+          max="10"
+          value={step}
+          onChange={(e) => setStep(Number(e.target.value))}
+        />
+      </div>
+
+      <div>
+        <span> Step: {step} </span>
+      </div>
+
       <button
-        onClick={() => {
-          setStep((s) => s - 1);
-        }}
-      >
-        -
-      </button>
-      <span> Set: {step} </span>
-      <button
-        onClick={() => {
-          setStep((s) => s + 1);
-        }}
-      >
-        +
-      </button>
-      <br />
-      <button
+        className="btn"
         onClick={() => {
           setCount((c) => c - step);
         }}
       >
         -
       </button>
-      <span> Count: {count} </span>
+
+      <input
+        className="input-field"
+        type="text"
+        value={count}
+        onChange={(e) => setCount(Number(e.target.value))}
+      ></input>
+
       <button
+        className="btn"
         onClick={() => {
           setCount((c) => c + step);
         }}
       >
         +
       </button>
-      <p>
+
+      <p className="result">
         <span>{count === 0 ? "Today is " : ""}</span>
         <span>{count < 0 ? `${count} days ago was ` : ""}</span>
         <span>{count > 0 ? `${count} days from now is ` : ""}</span>
         <span>{date.toDateString()}</span>
       </p>
+
+      {step !== 1 || count !== 0 ? (
+        <div>
+          <button
+            className="btn-reset"
+            onClick={(e) => {
+              handleReset();
+            }}
+          >
+            Reset
+          </button>
+        </div>
+      ) : null}
     </div>
   );
 }

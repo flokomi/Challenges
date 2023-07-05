@@ -1,0 +1,43 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+}
+
+.counter {
+  /* display: flex;
+  flex-direction: column;
+  flex-basis: */
+  text-align: center;
+  margin-top: 4.6rem;
+}
+
+.btn {
+  width: 20px;
+  height: 20px;
+}
+
+.btn-reset {
+  margin-top: 2.4rem;
+  padding: 4px;
+}
+
+.result {
+  margin-top: 2.4rem;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.input-field {
+  text-align: center;
+
+  margin: 1.4rem 1.4rem 0 1.4rem;
+}
